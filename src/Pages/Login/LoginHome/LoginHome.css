@@ -1,0 +1,53 @@
+.login {
+  width: 50%;
+  margin: 30px 0;
+  padding: 30px 0;
+}
+
+.size {
+  width: 50%;
+  margin-bottom: 30px;
+  border: 1px solid #2874a6;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.sub-btn {
+  width: 50%;
+  color: #fff;
+  background-color: #2874a6;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.sub-btn:hover {
+  color: #fff;
+}
+
+.toggle-link {
+  text-decoration: none;
+  color: #2874a6;
+  margin-left: 5px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.google-btn {
+  width: 30%;
+  height: 40px;
+  color: #fff;
+  background-color: #055fee;
+  border-radius: 3px;
+}
+
+@media only screen and (max-width: 688px) {
+  .login {
+    width: 80%;
+  }
+  .size {
+    width: 100%;
+  }
+  .google-btn {
+    height: 100%;
+  }
+}
