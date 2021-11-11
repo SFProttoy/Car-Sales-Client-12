@@ -2,12 +2,16 @@ import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import AddCar from "../AddCar/AddCar";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import ManageCars from "../ManageCars/ManageCars";
+import ManageOrders from "../ManageOrders/ManageOrders";
 import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
 import Review from "../Review/Review";
 
 const DashboardHome = () => {
-  const { user, logOut } = useAuth();
+  const { user, logOut, admin } = useAuth();
   let { path, url } = useRouteMatch();
   return (
     <>
@@ -27,15 +31,34 @@ const DashboardHome = () => {
             <Nav.Link className="link" as={Link} to="/home">
               Home
             </Nav.Link>
-            <Nav.Link className="link" as={Link} to={`${url}`}>
-              My Orders
-            </Nav.Link>
-            <Nav.Link className="link" as={Link} to={`${url}/review`}>
-              Review
-            </Nav.Link>
-            <Nav.Link className="link" as={Link} to={`${url}/pay`}>
-              Pay
-            </Nav.Link>
+            {admin ? (
+              <>
+                <Nav.Link className="link" as={Link} to={`${url}`}>
+                  Add A Car
+                </Nav.Link>
+                <Nav.Link className="link" as={Link} to={`${url}/makeAdmin`}>
+                  Make Admin
+                </Nav.Link>
+                <Nav.Link className="link" as={Link} to={`${url}/manageOrders`}>
+                  Manage All Orders
+                </Nav.Link>
+                <Nav.Link className="link" as={Link} to={`${url}/manageCars`}>
+                  Manage Cars
+                </Nav.Link>
+              </>
+            ) : (
+              <>
+                <Nav.Link className="link" as={Link} to={`${url}`}>
+                  My Orders
+                </Nav.Link>
+                <Nav.Link className="link" as={Link} to={`${url}/review`}>
+                  Review
+                </Nav.Link>
+                <Nav.Link className="link" as={Link} to={`${url}/pay`}>
+                  Pay
+                </Nav.Link>
+              </>
+            )}
 
             {user.email ? (
               <>
@@ -57,15 +80,34 @@ const DashboardHome = () => {
         </>
       </Navbar>
       <Switch>
-        <Route exact path={path}>
-          <MyOrders></MyOrders>
-        </Route>
-        <Route path={`${path}/review`}>
-          <Review></Review>
-        </Route>
-        <Route path={`${path}/pay`}>
-          <Pay></Pay>
-        </Route>
+        {admin ? (
+          <>
+            <Route exact path={path}>
+              <AddCar></AddCar>
+            </Route>
+            <Route path={`${path}/makeAdmin`}>
+              <MakeAdmin></MakeAdmin>
+            </Route>
+            <Route path={`${path}/manageOrders`}>
+              <ManageOrders></ManageOrders>
+            </Route>
+            <Route path={`${path}/manageCars`}>
+              <ManageCars></ManageCars>
+            </Route>
+          </>
+        ) : (
+          <>
+            <Route exact path={path}>
+              <MyOrders></MyOrders>
+            </Route>
+            <Route path={`${path}/review`}>
+              <Review></Review>
+            </Route>
+            <Route path={`${path}/pay`}>
+              <Pay></Pay>
+            </Route>
+          </>
+        )}
       </Switch>
     </>
   );

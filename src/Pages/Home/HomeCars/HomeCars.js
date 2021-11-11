@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Row, Spinner } from "react-bootstrap";
-import SingleCarHome from "../SingleCarHome/SingleCarHome";
+import HomeCar from "../HomeCar/HomeCar";
 
-const AllCarsHome = () => {
+const HomeCars = () => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
@@ -20,8 +20,8 @@ const AllCarsHome = () => {
         <h1 className="mt-5">
           Our <span style={{ color: "#47a0ff" }}>our Cars</span>
           <Row xs={1} md={3} className="container g-4 mx-auto">
-            {cars.map((car) => (
-              <SingleCarHome key={car._id} car={car}></SingleCarHome>
+            {cars.slice(0, 6).map((car) => (
+              <HomeCar key={car._id} car={car}></HomeCar>
             ))}
           </Row>
         </h1>
@@ -30,4 +30,4 @@ const AllCarsHome = () => {
   );
 };
 
-export default AllCarsHome;
+export default HomeCars;
