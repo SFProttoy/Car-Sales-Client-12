@@ -16,7 +16,7 @@ const Header = () => {
         expand="lg"
       >
         <>
-          <h1 className="text-white ms-5">BuyCar</h1>
+          <h1 className="text-white ms-3">BuyCar</h1>
 
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end me-5">
@@ -32,7 +32,7 @@ const Header = () => {
                 <Nav.Link className="link" as={Link} to="/dashboard">
                   Dashboard
                 </Nav.Link>
-                <p className="text-white mt-3 me-3 fw-bolder link name">
+                <p className="text-white mt-3 fw-bolder link name">
                   {user?.displayName}
                 </p>
                 <Button className="ms-4 btn-dark" onClick={logOut}>

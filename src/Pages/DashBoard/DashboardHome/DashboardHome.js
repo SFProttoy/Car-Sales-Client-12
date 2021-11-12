@@ -23,7 +23,7 @@ const DashboardHome = () => {
         expand="lg"
       >
         <>
-          <h1 className="text-white ms-5">Dashboard</h1>
+          <h1 className="text-white ms-3">Dashboard</h1>
 
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end me-5">
@@ -61,7 +61,7 @@ const DashboardHome = () => {
 
             {user.email ? (
               <>
-                <p className="text-white mt-3 me-5 fw-bolder link name">
+                <p className="text-white mt-3 fw-bolder link name">
                   {user?.displayName}
                 </p>
                 <Button className="ms-4 btn-dark" onClick={logOut}>

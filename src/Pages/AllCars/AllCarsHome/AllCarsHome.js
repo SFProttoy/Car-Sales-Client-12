@@ -18,7 +18,7 @@ const AllCarsHome = () => {
         <Spinner className="mt-5" animation="border" variant="dark" />
       ) : (
         <h1 className="mt-5">
-          Our <span style={{ color: "#47a0ff" }}>our Cars</span>
+          More <span style={{ color: "#2874A6" }}>Cars</span>
           <Row xs={1} md={3} className="container g-4 mx-auto">
             {cars.map((car) => (
               <SingleCarHome key={car._id} car={car}></SingleCarHome>

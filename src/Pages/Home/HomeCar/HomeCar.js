@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import "./HomeCar.css";
 const HomeCar = (props) => {
   const { _id, name, description, img, price } = props.car;
   return (

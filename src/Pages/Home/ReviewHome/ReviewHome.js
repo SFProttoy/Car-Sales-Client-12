@@ -16,7 +16,7 @@ const ReviewHome = () => {
         {reviews.map((review) => (
           <div key={review._id}>
             <Col>
-              <Card className="card-data mt-4 reviews mx-auto">
+              <Card className="mt-4 reviews mx-auto">
                 <Card.Body>
                   <Card.Title>{review.name}</Card.Title>
                   <p className="fw-bolder">{review.description}</p> <br />

@@ -18,7 +18,7 @@ const HomeCars = () => {
         <Spinner className="mt-5" animation="border" variant="dark" />
       ) : (
         <h1 className="mt-5">
-          Our <span style={{ color: "#47a0ff" }}>our Cars</span>
+          Our <span style={{ color: "#2874A6" }}>Cars</span>
           <Row xs={1} md={3} className="container g-4 mx-auto">
             {cars.slice(0, 6).map((car) => (
               <HomeCar key={car._id} car={car}></HomeCar>
