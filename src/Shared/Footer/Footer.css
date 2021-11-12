@@ -1,0 +1,25 @@
+.footer {
+  background-color: #2874a6;
+  height: 100%;
+  margin-top: 100px;
+}
+.footer-sections {
+  margin-top: 70px;
+}
+.icons {
+  color: #fff;
+  margin-right: 20px;
+  font-size: 30px;
+}
+
+.hr {
+  border-bottom: 3px solid #fff;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 688px) {
+  .footer {
+    height: 100%;
+  }
+}

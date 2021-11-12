@@ -3,7 +3,7 @@ import { Button, Row } from "react-bootstrap";
 
 const ManageOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
-  const [status, setStatus] = useState();
+  const [status, setStatus] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/purchases")
@@ -49,7 +49,7 @@ const ManageOrders = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           alert("Your pending booking has been updated.");
-          setStatus(true);
+          setStatus(id);
         }
       });
   };

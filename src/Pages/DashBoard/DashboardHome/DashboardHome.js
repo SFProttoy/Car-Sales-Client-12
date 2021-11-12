@@ -17,15 +17,14 @@ const DashboardHome = () => {
     <>
       <Navbar
         className="p-0"
-        style={{ backgroundColor: "#334960" }}
+        style={{ backgroundColor: "#2874A6" }}
         sticky="top"
         collapseOnSelect
         expand="lg"
       >
         <>
-          <Navbar.Brand as={Link} to="/home">
-            <h1 className="text-white ms-5">Dashboard</h1>
-          </Navbar.Brand>
+          <h1 className="text-white ms-5">Dashboard</h1>
+
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end me-5">
             <Nav.Link className="link" as={Link} to="/home">
@@ -62,10 +61,10 @@ const DashboardHome = () => {
 
             {user.email ? (
               <>
-                <p className="text-white mt-3 me-3 fw-bolder link">
+                <p className="text-white mt-3 me-5 fw-bolder link name">
                   {user?.displayName}
                 </p>
-                <Button className="ms-4" onClick={logOut}>
+                <Button className="ms-4 btn-dark" onClick={logOut}>
                   LogOut
                 </Button>
               </>

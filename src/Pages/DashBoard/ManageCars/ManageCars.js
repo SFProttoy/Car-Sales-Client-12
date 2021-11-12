@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Row, Spinner } from "react-bootstrap";
+import ManageOneCar from "../ManageOneCar/ManageOneCar";
 
 const ManageCars = () => {
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/cars")
+      .then((res) => res.json())
+      .then((data) => {
+        setCars(data);
+      });
+  }, []);
   return (
     <div>
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img
-            src="https://i.ibb.co/rxZPD2G/car1.jpg"
-            class="img-fluid rounded-start"
-            alt="..."
-          />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
-            <p class="card-text">
-              <small class="text-muted">Last updated 3 mins ago</small>
-            </p>
-          </div>
-        </div>
-      </div>
+      {cars.length === 0 ? (
+        <Spinner className="mt-5" animation="border" variant="dark" />
+      ) : (
+        <h1 className="mt-5">
+          Our <span style={{ color: "#47a0ff" }}>our Cars</span>
+          <Row xs={1} md={1} className="container g-4 mx-auto">
+            {cars.map((car) => (
+              <ManageOneCar
+                key={car._id}
+                car={car}
+                cars={cars}
+                setCars={setCars}
+              ></ManageOneCar>
+            ))}
+          </Row>
+        </h1>
+      )}
     </div>
   );
 };
