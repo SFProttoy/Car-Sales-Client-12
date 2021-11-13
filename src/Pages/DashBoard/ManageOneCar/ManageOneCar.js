@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const ManageOneCar = (props) => {
   const { _id, name, img, price } = props.car;
@@ -7,25 +8,35 @@ const ManageOneCar = (props) => {
   const { setCars } = props;
 
   const handleDelete = (id) => {
-    const proceed = window.confirm(
-      '"Are you sure you want to cancel the product?"'
-    );
-
-    if (proceed) {
-      const url = `https://nameless-chamber-15143.herokuapp.com/cars/${id}`;
-      fetch(url, {
-        method: "DELETE",
-        headers: { "content-type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            alert("Your order has been cancelled.");
-            const remainingCars = cars.filter((car) => car._id !== id);
-            setCars(remainingCars);
-          }
-        });
-    }
+    Swal.fire({
+      title: "Are you sure you want to delete?",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonText: "No!",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const url = `https://nameless-chamber-15143.herokuapp.com/cars/${id}`;
+        fetch(url, {
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire(
+                "Deleted!",
+                "Your product has been deleted.",
+                "success"
+              );
+              const remainingCars = cars.filter((car) => car._id !== id);
+              setCars(remainingCars);
+            }
+          });
+      }
+    });
   };
 
   return (

@@ -4,7 +4,7 @@ import { Accordion, Col, Row } from "react-bootstrap";
 const Info = () => {
   return (
     <div className="container" style={{ marginTop: "120px" }}>
-      <Row xs={1} md={2} c>
+      <Row xs={1} md={2}>
         <Col>
           <h1 className="mb-5">
             OUR <span style={{ color: "#2874A6" }}>MISSION</span>

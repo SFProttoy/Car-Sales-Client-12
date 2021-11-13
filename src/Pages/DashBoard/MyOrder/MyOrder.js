@@ -1,6 +1,7 @@
 import Button from "@restart/ui/esm/Button";
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const MyOrder = (props) => {
   const { myOrders, setMyOrders } = props;
@@ -8,28 +9,39 @@ const MyOrder = (props) => {
   const { _id, email, status } = props.myOrder;
 
   // Cancel orders
-  const handleDelete = (id) => {
-    const proceed = window.confirm(
-      '"Are you sure you want to cancel your order?"'
-    );
 
-    if (proceed) {
-      const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
-      fetch(url, {
-        method: "DELETE",
-        headers: { "content-type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            alert("Your order has been cancelled.");
-            const remainingOrders = myOrders.filter(
-              (order) => order._id !== id
-            );
-            setMyOrders(remainingOrders);
-          }
-        });
-    }
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure you want to cancel your order?",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonText: "No!",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, cancel it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
+        fetch(url, {
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire(
+                "Cancelled!",
+                "Your order has been cancelled.",
+                "success"
+              );
+              const remainingOrders = myOrders.filter(
+                (order) => order._id !== id
+              );
+              setMyOrders(remainingOrders);
+            }
+          });
+      }
+    });
   };
 
   return (

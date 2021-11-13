@@ -22,7 +22,7 @@ const ReviewHome = () => {
               <Card className="mt-4 reviews mx-auto">
                 <Card.Body>
                   <Card.Title>{review.name}</Card.Title>
-                  <p className="fw-bolder">{review.description}</p> <br />
+                  <p className="fs-5">{review.description}</p> <br />
                   {[...Array(5)].map((star, i) => {
                     const total = i + 1;
                     const rating = review.ratings;

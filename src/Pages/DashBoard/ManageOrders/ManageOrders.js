@@ -13,27 +13,33 @@ const ManageOrders = () => {
   }, [status]);
 
   const handleCancel = (id) => {
-    const proceed = window.confirm(
-      '"Are you sure you want to cancel the order?"'
-    );
-
-    if (proceed) {
-      const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
-      fetch(url, {
-        method: "DELETE",
-        headers: { "content-type": "application/json" },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            alert("Your order has been cancelled.");
-            const remainingOrders = allOrders.filter(
-              (order) => order._id !== id
-            );
-            setAllOrders(remainingOrders);
-          }
-        });
-    }
+    Swal.fire({
+      title: "Are you sure to cancel this order?",
+      icon: "warning",
+      showCancelButton: true,
+      cancelButtonText: "No!",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, cancel it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
+        fetch(url, {
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Cancelled", "Order has been cancelled.", "success");
+              const remainingOrders = allOrders.filter(
+                (order) => order._id !== id
+              );
+              setAllOrders(remainingOrders);
+            }
+          });
+      }
+    });
   };
 
   // // update status
@@ -67,19 +73,25 @@ const ManageOrders = () => {
       <Row xs={1} md={3} className="container g-4 mx-auto">
         {allOrders.map((order) => (
           <div key={order._id}>
-            <div class="row g-0">
-              <div class="col-md-5 mt-4">
-                <img src={order.carDetails.img} class="img-fluid" alt="..." />
+            <div className="row g-0">
+              <div className="col-md-5 mt-4">
+                <img
+                  src={order.carDetails.img}
+                  className="img-fluid"
+                  alt="..."
+                />
                 <h5 className="mt-3">{order.carDetails.name}</h5>
                 <span className="fw-bolder">
                   Price: ${order.carDetails.price}
                 </span>
               </div>
-              <div class="col-md-7">
-                <div class="card-body">
-                  <span class="fs-5 fw-bolder mb-5">Name: {order.name}</span>
+              <div className="col-md-7">
+                <div className="card-body">
+                  <span className="fs-5 fw-bolder mb-5">
+                    Name: {order.name}
+                  </span>
                   <br />
-                  <span class="fw-bolder">Email: {order.email}</span>
+                  <span className="fw-bolder">Email: {order.email}</span>
                   <p className="mt-2 mb-3 fw-bolder">
                     Order Status: {order.status}
                   </p>
@@ -95,7 +107,7 @@ const ManageOrders = () => {
                     size="sm"
                     onClick={() => handleCancel(order._id)}
                   >
-                    Cancel Tour
+                    Cancel Order
                   </Button>
 
                   <br />
