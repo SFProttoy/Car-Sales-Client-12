@@ -16,6 +16,8 @@ Our site link: (https://car-sales-12.web.app/).
 <li>Login via email and password.</li>
 <li>Registration via name, email and password.</li>
 
+<br/>
+
 #For admins
 
 <li>See all cars.</li>
