@@ -16,7 +16,7 @@ const Header = () => {
         expand="lg"
       >
         <>
-          <h1 className="text-white ms-3">BuyCar</h1>
+          <h1 className="text-white ms-4">BuyCar</h1>
 
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end me-5">
