@@ -16,6 +16,7 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [admin, setAdmin] = useState(false);
+  const [errorType, setErrorType] = useState("");
 
   const auth = getAuth();
 
@@ -48,6 +49,7 @@ const useFirebase = () => {
           .catch((error) => {});
       })
       .catch((error) => {
+        setErrorType("register");
         setError(error.message);
       })
       .finally(() => setIsLoading(false));
@@ -69,6 +71,7 @@ const useFirebase = () => {
         setError("");
       })
       .catch((error) => {
+        setErrorType("login");
         setError(error.message);
       })
       .finally(() => setIsLoading(false));
@@ -123,9 +126,11 @@ const useFirebase = () => {
     error,
     admin,
     isLoading,
+    errorType,
+    logOut,
     registerUser,
     loginUser,
-    logOut,
+    setError,
   };
 };
 

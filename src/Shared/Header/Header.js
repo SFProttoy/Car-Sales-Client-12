@@ -35,7 +35,7 @@ const Header = () => {
                 <p className="text-white mt-3 fw-bolder link name">
                   {user?.displayName}
                 </p>
-                <Button className="ms-4 btn-dark" onClick={logOut}>
+                <Button className="ms-4 btn-dark common-btn" onClick={logOut}>
                   LogOut
                 </Button>
               </>

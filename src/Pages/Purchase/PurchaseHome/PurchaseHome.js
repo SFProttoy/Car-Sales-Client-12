@@ -41,12 +41,12 @@ const PurchaseHome = () => {
     <Row
       xs={1}
       md={2}
-      className="mt-5 d-flex justify-content-center align-items-center w-100"
+      className="mt-5 d-flex justify-content-center align-items-center w-100 mx-auto"
     >
       <Col className="details">
         <img className="car-img" src={img} width="500" alt="" />
         <h1>{name}</h1>
-        <p className="mt-5 mb-4 details-para fs-4">{description}</p>
+        <p className="mt-5 mb-4 details-para fs-5 info">{description}</p>
         <h5 className="text-dark fw-bolder">Price: ${price}</h5>
       </Col>
       <Col>
@@ -87,7 +87,7 @@ const PurchaseHome = () => {
           />
           <br />
 
-          <input className="order-btn" type="submit" value="Add" />
+          <input className="order" type="submit" value="Add" />
         </form>
       </Col>
     </Row>

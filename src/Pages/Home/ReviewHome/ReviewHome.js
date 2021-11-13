@@ -11,7 +11,10 @@ const ReviewHome = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginTop: "120px" }}>
+      <h1>
+        SOME <span style={{ color: "#2874A6" }}>TESTIMONIALS</span>
+      </h1>
       <Row xs={1} md={3} className="container g-4 mx-auto">
         {reviews.map((review) => (
           <div key={review._id}>

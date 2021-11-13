@@ -32,7 +32,7 @@ const Review = () => {
   };
   return (
     <div>
-      <h1>Please review about our company.</h1>
+      <h1 className="mt-4 mb-4">Please review about our company.</h1>
       <form className="" onSubmit={handleSubmit(onSubmit)}>
         <input
           className="size"
@@ -59,7 +59,7 @@ const Review = () => {
           {...register("ratings", { required: true })}
         />
         <br />
-        <input className="order-btn" type="submit" value="Add" />
+        <input className="order-btn" type="submit" value="Done" />
       </form>
     </div>
   );

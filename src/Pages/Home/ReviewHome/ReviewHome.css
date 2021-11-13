@@ -1,6 +1,8 @@
 .reviews {
   width: 350px;
   height: 250px;
+  border: 2px solid #2874a6;
+  border-radius: 8px;
 }
 
 @media only screen and (max-width: 688px) {

@@ -12,11 +12,18 @@
   color: #fad7a0;
 }
 
+.link:focus {
+  color: #fad7a0;
+}
+
 @media only screen and (max-width: 688px) {
   .link {
     margin-left: 70px;
   }
   .name {
     margin-right: 45px;
+  }
+  .common-btn {
+    margin-bottom: 20px;
   }
 }

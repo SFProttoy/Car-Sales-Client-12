@@ -24,7 +24,7 @@ const Footer = () => {
     <div className="footer">
       <div className="row w-100 mx-auto">
         <div className="col-md-3 footer-sections">
-          <h2 className="text-white">Connect with us via</h2>
+          <h4 className="text-white">Connect with us via</h4>
           <span className="icons">{fb}</span>
           <span className="icons">{yt}</span>
           <span className="icons">{ld}</span>
@@ -32,24 +32,24 @@ const Footer = () => {
           <span className="icons">{g}</span>
         </div>
         <div className="col-md-3 footer-sections">
-          <h2 className="text-white">About</h2>
+          <h4 className="text-white">About</h4>
           <h5 className="text-white">About us</h5>
           <h5 className="text-white">FAQ</h5>
           <h5 className="text-white">Terms and conditions</h5>
         </div>
         <div className="col-md-3 footer-sections">
-          <h2 className="text-white">Useful Links</h2>
+          <h4 className="text-white">Useful Links</h4>
           <h5 className="text-white">Discounts</h5>
           <h5 className="text-white">Coupons</h5>
           <h5 className="text-white">Blog Posts</h5>
         </div>
         <div className="col-md-3 footer-sections">
-          <h2 className="text-white">Contact us:</h2>
-          <h4 className="text-white">
-            <span className="icons">{phone}</span>Phone: +88-01777777
-          </h4>
+          <h4 className="text-white">Contact us:</h4>
           <h5 className="text-white">
-            <span className="icons">{mail}</span> Email: tour01@gmail.com
+            <span className="icons">{phone}</span>Phone: +88-01777777
+          </h5>
+          <h5 className="text-white">
+            <span className="icons">{mail}</span> Email: carbuy007@gmail.com
           </h5>
         </div>
       </div>

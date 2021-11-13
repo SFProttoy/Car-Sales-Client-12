@@ -6,7 +6,7 @@ import useAuth from "../../../../hooks/useAuth";
 
 const RegistrationHome = () => {
   const { register, handleSubmit } = useForm();
-  const { registerUser, error, isLoading } = useAuth();
+  const { registerUser, error, isLoading, errorType, setError } = useAuth();
   const history = useHistory();
 
   const onSubmit = (data) => {
@@ -42,16 +42,21 @@ const RegistrationHome = () => {
           {...register("password", { required: true })}
         />
         <br />
-        <input className="sub-btn" type="submit" />
+        <input className="sub-btn" type="submit" value="Register" />
       </form>
       {isLoading && <Spinner animation="border" variant="dark" />}
-      <h5 className="text-danger mb-4">{error}</h5>
+      {errorType === "register" ? (
+        <h5 className="text-danger mb-4">{error}</h5>
+      ) : (
+        setError("")
+      )}
+
       <h5>
         Already Registerd? <br />
-        <Link className="toggle-link me-3" to="/login">
-          Login
-        </Link>
       </h5>
+      <Link className="toggle-link me-3" to="/login">
+        Login
+      </Link>
     </div>
   );
 };

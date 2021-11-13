@@ -7,7 +7,7 @@ import "./LoginHome.css";
 
 const LoginHome = () => {
   const { register, handleSubmit } = useForm();
-  const { loginUser, isLoading, error } = useAuth();
+  const { loginUser, isLoading, error, errorType, setError } = useAuth();
 
   const history = useHistory();
   const location = useLocation();
@@ -36,18 +36,22 @@ const LoginHome = () => {
           {...register("password", { required: true })}
         />
         <br />
-        <input className="sub-btn" type="submit" />
+        <input className="sub-btn" type="submit" value="Log in" />
       </form>
 
       {isLoading && <Spinner animation="border" variant="dark" />}
 
-      <h5 className="text-danger mb-4">{error}</h5>
+      {errorType === "login" ? (
+        <h5 className="text-danger mb-4">{error}</h5>
+      ) : (
+        setError("")
+      )}
       <h5>
         <span className="mb-1">New User?</span> <br />
-        <Link className="toggle-link me-3" to="/register">
-          Register
-        </Link>
       </h5>
+      <Link className="toggle-link me-3" to="/register">
+        Register
+      </Link>
     </div>
   );
 };

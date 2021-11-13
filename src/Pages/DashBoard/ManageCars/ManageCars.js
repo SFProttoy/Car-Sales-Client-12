@@ -17,8 +17,8 @@ const ManageCars = () => {
       {cars.length === 0 ? (
         <Spinner className="mt-5" animation="border" variant="dark" />
       ) : (
-        <h1 className="mt-5">
-          Our <span style={{ color: "#47a0ff" }}>our Cars</span>
+        <h1 className="mt-4 mb-4">
+          Manage Cars
           <Row xs={1} md={1} className="container g-4 mx-auto">
             {cars.map((car) => (
               <ManageOneCar

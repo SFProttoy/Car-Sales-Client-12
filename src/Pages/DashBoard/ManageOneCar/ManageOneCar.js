@@ -6,7 +6,7 @@ const ManageOneCar = (props) => {
   const { cars } = props;
   const { setCars } = props;
 
-  const handleCancel = (id) => {
+  const handleDelete = (id) => {
     const proceed = window.confirm(
       '"Are you sure you want to cancel the product?"'
     );
@@ -31,7 +31,7 @@ const ManageOneCar = (props) => {
   return (
     <div>
       <Col>
-        <Card className="card-data mt-4">
+        <Card className="mt-4">
           <Row xs={1} md={4}>
             <Col>
               <Card.Img className="mx-auto" variant="top" src={img} />
@@ -44,12 +44,12 @@ const ManageOneCar = (props) => {
             </Col>
             <Col>
               <Button
-                className="btn btn-danger btn-sm"
+                className="btn btn-danger common-btn"
                 size="sm"
-                onClick={() => handleCancel(_id)}
+                onClick={() => handleDelete(_id)}
                 style={{ marginTop: "50px" }}
               >
-                Cancel Product
+                Delete Product
               </Button>
             </Col>
           </Row>

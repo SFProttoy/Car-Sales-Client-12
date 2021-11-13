@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
 import PurchaseHome from "./PurchaseHome/PurchaseHome";
 
@@ -7,6 +8,7 @@ const Purchase = () => {
     <div>
       <Header></Header>
       <PurchaseHome></PurchaseHome>
+      <Footer></Footer>
     </div>
   );
 };

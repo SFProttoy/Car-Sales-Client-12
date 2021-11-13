@@ -47,6 +47,9 @@
   .size {
     width: 100%;
   }
+  .sub-btn {
+    width: 70%;
+  }
   .google-btn {
     height: 100%;
   }

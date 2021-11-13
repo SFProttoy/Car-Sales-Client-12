@@ -20,18 +20,18 @@ const AddCar = () => {
   };
   return (
     <div>
-      <h1>Add A New Car</h1>
-      <form className="" onSubmit={handleSubmit(onSubmit)}>
+      <h1 className="mt-3 mb-3">Add A New Car</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           className="size"
-          defaultValue=""
+          type="text"
           placeholder="name"
           {...register("name", { required: true })}
         />
         <br />
         <input
           className="size"
-          defaultValue=""
+          type="number"
           placeholder="price"
           {...register("price", { required: true })}
         />
@@ -39,16 +39,10 @@ const AddCar = () => {
         <textarea
           className="size"
           placeholder="description"
-          defaultValue=""
           {...register("description", { required: true })}
         />
         <br />
-        <input
-          className="size"
-          placeholder="image url"
-          defaultValue=""
-          {...register("img")}
-        />
+        <input className="size" placeholder="image url" {...register("img")} />
         <br />
 
         <input className="order-btn" type="submit" value="Add" />

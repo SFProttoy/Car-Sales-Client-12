@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../Shared/Footer/Footer";
 import Header from "../../Shared/Header/Header";
 import LoginHome from "./LoginHome/LoginHome";
 
@@ -7,6 +8,7 @@ const Login = () => {
     <div>
       <Header></Header>
       <LoginHome></LoginHome>
+      <Footer></Footer>
     </div>
   );
 };

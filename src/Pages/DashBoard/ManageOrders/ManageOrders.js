@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const ManageOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
@@ -48,7 +49,13 @@ const ManageOrders = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          alert("Your pending booking has been updated.");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Shipped The Order",
+            showConfirmButton: false,
+            timer: 2000,
+          });
           setStatus(id);
         }
       });
@@ -56,7 +63,7 @@ const ManageOrders = () => {
 
   return (
     <div>
-      <h1>Total Orders: {allOrders.length}</h1>
+      <h1 className="mt-4 mb-4">Total Orders: {allOrders.length}</h1>
       <Row xs={1} md={3} className="container g-4 mx-auto">
         {allOrders.map((order) => (
           <div key={order._id}>
@@ -77,14 +84,14 @@ const ManageOrders = () => {
                     Order Status: {order.status}
                   </p>
                   <Button
-                    className="btn btn-success mb-3 btn-sm"
+                    className="btn btn-success mb-3"
                     onClick={() => handleUpdateStatus(order._id, order)}
                   >
                     Ship
                   </Button>
                   <br />
                   <Button
-                    className="btn btn-danger btn-sm"
+                    className="btn btn-danger"
                     size="sm"
                     onClick={() => handleCancel(order._id)}
                   >

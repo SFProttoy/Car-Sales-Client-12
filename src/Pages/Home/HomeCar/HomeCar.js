@@ -14,7 +14,7 @@ const HomeCar = (props) => {
             <p className="fs-6 info">{description}</p>
             <h5>Price: ${price}</h5>
             <Link to={`/purchase/${_id}`}>
-              <Button className="btn btn-dark button">Buy</Button>
+              <Button className="btn btn-buy">Buy</Button>
             </Link>
           </Card.Body>
         </Card>

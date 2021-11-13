@@ -35,7 +35,7 @@ const MyOrder = (props) => {
   return (
     <div>
       <Col>
-        <Card className="card-data mt-4">
+        <Card className="mt-4">
           <Card.Img className="mx-auto" variant="top" src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>

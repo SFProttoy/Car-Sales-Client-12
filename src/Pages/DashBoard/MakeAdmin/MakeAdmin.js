@@ -36,15 +36,16 @@ const MakeAdmin = () => {
   };
   return (
     <div>
-      <h1>Make an admin</h1>
+      <h1 className="mt-3 mb-5">Make an admin</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
+          className="size mb-5"
           type="email"
           placeholder="choose an email"
           {...register("email", { required: true })}
         />
         <br />
-        <input type="submit" />
+        <input type="submit" className="order-btn" value="make" />
       </form>
     </div>
   );

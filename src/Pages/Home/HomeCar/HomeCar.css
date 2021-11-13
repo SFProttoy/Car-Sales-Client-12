@@ -4,13 +4,19 @@
 }
 
 .card-data:hover {
-  transform: translateY(-10px);
+  transform: translateY(-15px);
   box-shadow: 5px 5px 20px grey;
 }
 
 .info {
   text-align: justify;
   font-size: 16px;
+}
+
+.btn-buy {
+  width: 140px;
+  height: 40px;
+  background-color: #2874a6;
 }
 
 @media only screen and (max-width: 688px) {
