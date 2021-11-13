@@ -7,7 +7,7 @@ const ManageOrders = () => {
   const [status, setStatus] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/purchases")
+    fetch("https://nameless-chamber-15143.herokuapp.com/purchases")
       .then((res) => res.json())
       .then((data) => setAllOrders(data));
   }, [status]);
@@ -18,7 +18,7 @@ const ManageOrders = () => {
     );
 
     if (proceed) {
-      const url = `http://localhost:5000/purchases/${id}`;
+      const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
       fetch(url, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
@@ -40,7 +40,7 @@ const ManageOrders = () => {
 
   const handleUpdateStatus = (id, order) => {
     order.status = "shipped";
-    const url = `http://localhost:5000/purchases/${id}`;
+    const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
     fetch(url, {
       method: "PUT",
       headers: { "content-type": "application/json" },

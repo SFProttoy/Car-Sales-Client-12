@@ -14,7 +14,7 @@ const MyOrder = (props) => {
     );
 
     if (proceed) {
-      const url = `http://localhost:5000/purchases/${id}`;
+      const url = `https://nameless-chamber-15143.herokuapp.com/purchases/${id}`;
       fetch(url, {
         method: "DELETE",
         headers: { "content-type": "application/json" },

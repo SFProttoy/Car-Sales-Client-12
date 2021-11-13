@@ -5,18 +5,20 @@ import Swal from "sweetalert2";
 const AddCar = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/cars", data).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Successfully Added",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        reset();
-      }
-    });
+    axios
+      .post("https://nameless-chamber-15143.herokuapp.com/cars", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Added",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          reset();
+        }
+      });
   };
   return (
     <div>

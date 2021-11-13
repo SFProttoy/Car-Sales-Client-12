@@ -12,7 +12,7 @@ const ManageOneCar = (props) => {
     );
 
     if (proceed) {
-      const url = `http://localhost:5000/cars/${id}`;
+      const url = `https://nameless-chamber-15143.herokuapp.com/cars/${id}`;
       fetch(url, {
         method: "DELETE",
         headers: { "content-type": "application/json" },

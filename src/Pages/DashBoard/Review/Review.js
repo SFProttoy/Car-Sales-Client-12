@@ -8,18 +8,20 @@ const Review = () => {
   const { user } = useAuth();
   const onSubmit = (data) => {
     if (data.ratings >= 0 && data.ratings <= 5) {
-      axios.post("http://localhost:5000/reviews", data).then((res) => {
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Successfully Added",
-            showConfirmButton: false,
-            timer: 2000,
-          });
-          reset();
-        }
-      });
+      axios
+        .post("https://nameless-chamber-15143.herokuapp.com/reviews", data)
+        .then((res) => {
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Successfully Added",
+              showConfirmButton: false,
+              timer: 2000,
+            });
+            reset();
+          }
+        });
     } else {
       Swal.fire({
         position: "center",

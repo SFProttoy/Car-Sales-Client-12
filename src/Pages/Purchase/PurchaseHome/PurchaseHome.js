@@ -14,27 +14,29 @@ const PurchaseHome = () => {
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cars/${buyId}`)
+    fetch(`https://nameless-chamber-15143.herokuapp.com/cars/${buyId}`)
       .then((res) => res.json())
       .then((data) => setCarDetails(data));
-  }, []);
+  }, [buyId]);
 
   const { img, name, description, price } = carDetails;
 
   const onSubmit = (data) => {
     data.carDetails = carDetails;
-    axios.post("http://localhost:5000/purchases", data).then((res) => {
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Successfully Ordered",
-          showConfirmButton: false,
-          timer: 2000,
-        });
-        reset();
-      }
-    });
+    axios
+      .post("https://nameless-chamber-15143.herokuapp.com/purchases", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfully Ordered",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          reset();
+        }
+      });
   };
 
   return (

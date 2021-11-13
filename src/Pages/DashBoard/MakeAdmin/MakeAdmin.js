@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const MakeAdmin = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/users/admin", {
+    fetch("https://nameless-chamber-15143.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
